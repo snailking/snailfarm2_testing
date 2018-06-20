@@ -1,0 +1,15 @@
+
+.altcolor{
+    background-color:#c5d6c0;
+    border-radius:10px;
+    margin-top:10px;
+    padding:10px;
+	border-image: url("snailpattern.jpg");
+}
+.form-control {
+    display: inline-block;
+}
+
+.invis {
+    display: none;
+}

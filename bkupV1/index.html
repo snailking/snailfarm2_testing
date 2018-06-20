@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.png">
+
+    <title>SnailFarm 2</title>
+	
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+    <link href="custom.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="interface.js"></script>
+    <script src="main.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119764780-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-119764780-1');
+	</script>
+
+  </head>
+
+  <body bgcolor="#CCCC00">
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <!--<span class="close">&times;</span>-->
+        <div id="modal-internal"></div>
+      </div>
+
+    </div>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="https://discord.gg/8h3Emyb">Discord</a></li>
+            <li role="presentation"><a href="https://etherscan.io/address/0xdc078ff399d0001c31454e83896e8881d164fb95">Contract</a></li>
+			<li role="presentation"><a href="https://snailking.github.io/snailfarm">Snailfarm 1</a></li>
+          </ul>
+        </nav>
+         <br>
+	  <h1 class="text-muted">SnailFarm 2 - Crypto Idle Game</h1>
+	  <br><h4 class="text-muted">Raise your nest of snails, sell your eggs for ether, become the Snailmaster</h4>
+      </div>
+	  
+	  <div class="header clearfix">
+		<h2 align="center">ROUND <span id="round">?</span></h2>
+		<br><h4 align="center">Previous snailpot: <span id="previoussnailpot">?</span> ETH</h4>
+		<br><h4 align="center"><span id="cheapacorns">?</span></h4>
+     </div>
+	 
+      <div class="jumbotron">
+            
+            <p class="lead"></p>
+            
+          <div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="snailshells.png" width="120" height="120" alt="Shell">
+                    
+                    </div>
+                <div class="col-md-6">
+                    <h2>Snailpot: <span id="snailpot">?</span> ETH</h2>
+					<br><h4>To claim half of the snailpot, become the snailmaster.</h4>
+                </div>
+              </div>
+          </div>  
+          <div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="shrimp.png" width="150" height="150" alt="Shrimp">
+                    
+                    </div>
+                <div class="col-md-6">
+                    <h2><span class="numshrimp">?</span> Snail</h2>
+                    <br>
+                    <h3>Producing <span id="production">?</span> eggs per hour</h3>
+                </div>
+              </div>
+              <div class="row">
+                <p><a id="getfreeshrimp" class="btn btn-lg btn-success invis" onclick="getFreeShrimp2()" role="button">Buy StarterSnails</a></p>
+		
+              </div>
+          </div>
+          <div class="container altcolor">
+              <div class="row">
+                    <div class="col-md-4" >
+                    </div>
+                    <div class="col-md-8">
+                    <h2><span class="numeggs">0</span> Eggs
+                    <br>
+                    (<span id="timeuntilfull">?</span> until hatchery full)
+                    </h2>
+                    </div>
+              </div>
+              <br><br>
+                <div class="row">
+                    <div class="col-md-4" >
+                        <img src="shrimpegg.png" width="50" height="50" alt="Egg">
+                    </div>
+                    
+                    <div class="col-md-8"><p><a class="btn btn-lg btn-success" onclick="hatchEggs1(displayTransactionMessage)" role="button">Hatch <span id="hatchshrimpquantity">?</span> Eggs</a></p></div>
+              </div>
+					<div class="col-md-4" >
+                    </div>
+					<div class="col-md-8"><h3>Current hatch boost: <strong><span id="playerprod">?</span>x</strong></h3>
+              </div>
+			</div>
+		<div class="container altcolor">
+              <div class="row">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-8">
+                    <p><a class="btn btn-lg btn-info" onclick="SellEggs(displayTransactionMessage)"  role="button">Sell Eggs For <span id="sellprice">?</span></a></p>
+                  </div>
+              </div>
+                <div class="row">
+                    <div class="col-md-4" >
+                    </div>
+                    <div class="col-md-8">
+                        <p><span id="marketeggs">?</span> eggs on the market</p>
+                    </div>
+              </div>
+       
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="ether.png" width="150" height="150" alt="Shrimp">
+                    
+                    </div>
+                <div class="col-md-7">
+                    <a class="btn btn-lg btn-info" onclick="buyEggs2()"  role="button">Buy Eggs</a>
+                    <h2><span id="eggstobuy">?</span> eggs for </h2><input class="form-control" type="number" style="width: 130px" onchange="updateBuyPrice()" step="0.01" value="0.05" id="ethtospend">
+					<br>(NOTE: this is the default value. Adjust this number up or down to buy different amounts of eggs.)
+                </div>
+
+              </div>
+			  </div>
+		</div>
+		<div class="jumbotron">
+			<div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="druid.png" width="150" height="150" alt="Shrimp">
+                    
+                    </div>
+                <div class="col-md-7">
+					<!--<h4>Current Snailmaster: <span id="currentsnailmaster">?</span></h4><br>-->
+                    <a class="btn btn-lg btn-success" onclick="BecomeSnailmaster(displayTransactionMessage)"  role="button">Become the Snailmaster</a>
+                    <h2>Requirement: <span id="snailmasterreq">?</span> Snails</h2>
+					<h4><br>Becoming the Snailmaster divides your snails by 10. You will win half of the snailpot.</h4>
+					<h5><br>(NOTE: if you have eggs, some of them will disappear when you sacrifice snails. Make sure to hatch first!)</h5>
+					</div>
+				</div>
+			</div>
+			<div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="spider.png" width="150" height="150" alt="Shrimp">
+                    
+                    </div>
+                <div class="col-md-7">
+					<!--<h4>Current Snailmaster: <span id="currentsnailmaster">?</span></h4><br>-->
+                    <a class="btn btn-lg btn-success" onclick="BecomeSpiderQueen(displayTransactionMessage)"  role="button">Become the SpiderQueen</a>
+                    <h2>Sacrifice <span id="spiderreq">?</span> Snails</h2>
+					<h4><br>While you own the SpiderQueen, hatching gives you an extra batch of snails. This stacks with other boosts.</h4>
+					<h5><br>Current Spider Owner: 0x<span id="currentspiderowner">?</span></h5>
+                </div>
+              </div>
+			</div>
+			<div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="squirrel.png" width="150" height="150" alt="Shrimp">
+                    
+                    </div>
+                <div class="col-md-7">
+					<!--<h4>Current Snailmaster: <span id="currentsnailmaster">?</span></h4><br>-->
+                    <a class="btn btn-lg btn-success" onclick="BecomeSquirrelDuke(displayTransactionMessage)"  role="button">Become the SquirrelDuke</a>
+                    <h2>Consume <span id="squirrelreq">?</span> Acorns</h2>
+					<h4><br>While you own the SquirrelDuke, hatching gives you an extra batch of snails. This stacks with other boosts.</h4>
+					<h5><br>Current Squirrel Owner: 0x<span id="currentsquirrelowner">?</span></h5>
+                </div>
+              </div>
+			</div>
+			<div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="tadpole.png" width="150" height="150" alt="Shrimp">
+                    
+                    </div>
+                <div class="col-md-7">
+					<!--<h4>Current Snailmaster: <span id="currentsnailmaster">?</span></h4><br>-->
+                    <a class="btn btn-lg btn-success" onclick="buyPrince()"  role="button">Become the TadpolePrince</a>
+					<br><input class="form-control" type="number" style="width: 130px" step="0.01" value="tadpolereq" id="tadpolepotato">
+                    <h2>Minimum required: <span id="tadpolereq">?</span> ETH</h2>
+					<h4><br>While you own the TadpolePrince, hatching gives you an extra batch of snails. This stacks with other boosts.</h4>
+					<h5><br>Current Tadpole Owner: 0x<span id="currenttadpoleowner">?</span></h5>
+                </div>
+              </div>
+          </div>
+      
+        
+      </div>
+      <div class="jumbotron">
+		<div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="ethertree.png" width="120" height="120" alt="Shell">
+                    
+                    </div>
+                <div class="col-md-6">
+                    <h2>Treepot: <span id="treepot">?</span> ETH</h2>
+					<br><h3>Your acorns: <span id="playeracorns">?</span></h3>
+					<h3>Total acorns: <span id="totalacorns">?</span></h3> <!--(<span id="percentacorns">?</span>% of the supply)</h3>-->
+					<!--<br><h4>Current acorn price: <span id="currentacornprice">?</span></h4>-->
+                </div>
+              </div>
+          </div>
+        <div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="acorn.png" width="120" height="120" alt="Shrimp">
+                    
+                    </div>
+                <div class="col-md-7">
+                    <a class="btn btn-lg btn-info" onclick="buyAcorns2()"  role="button">Buy Acorns</a>
+                    <h2><span id="acornstobuy">?</span> acorns for </h2><input class="form-control" type="number" style="width: 130px" onchange="updateAcornPriceBuy()" step="0.01" value="0.05" id="ethtobuyacorn">
+					<br>(NOTE: this is the default value. Adjust this number up or down to buy different amounts of acorns.)
+                </div>
+              </div>
+		</div>
+		<div class="container altcolor">
+              <div class="row">
+                <div class="col-md-4">
+                    <img src="ether.png" width="150" height="150" alt="Shrimp">
+                    
+                    </div>
+                <div class="col-md-7">
+                    <a class="btn btn-lg btn-info" onclick="sellAcorns2()"  role="button">Sell Acorns</a>
+                    <h2><span id="ethforacorns">?</span> ETH for </h2><input class="form-control" type="number" style="width: 130px" onchange="updateAcornPriceSell()" step="100" value="1000" id="acornstosell">
+					<br>(NOTE: this is the default value. Adjust this number up or down to sell different amounts of acorns.)
+                </div>
+              </div>
+		</div>		 		
+		<div class="container altcolor">
+              <div class="row">
+                    <div class="col-md-4" ><img src="metamask.png" width="120" height="120" alt="Shrimp">
+                    </div>
+                    <div class="col-md-8">
+                    <h2>Your Earnings: <br><span id="numearnings">?</span> ETH</h2>
+                    </div>
+              </div>
+              <br>
+				
+              <div class="row">   
+					<div class="col-md-4">
+					</div>
+                    <div class="col-md-8"><p><a class="btn btn-lg btn-success" onclick="WithdrawEarnings(displayTransactionMessage)" role="button">Withdraw to your Wallet</a></p></div>
+              </div>
+	  
+	  </div>
+	</div>
+     
+      <div class="row marketing">
+          <h4>INTRO</h4>
+          
+		  <p>SnailFarm 2 is a competitive idle game on the Ethereum blockchain.</p>
+		  <p>Buy snails with ether, then hatch their eggs to get more snails until you can reach the coveted position of Snailmaster. Eggs can also be bought or sold for ether, directly to the contract. Several boosters are available to hatch more snails at once.</p>
+		  <p>For a more passive playstyle, buy acorns from the ethertree and redeem them for ether later.</p><br>
+		  
+		  <h4>REWARDS</h4>
+		  
+		  <p>All ether spent on the game is split between the snailpot and the treepot. The snailpot can be claimed by whoever reaches the Snailmaster title. This snailpot also governs egg price on the market. The treepot is an extra fund any acorn holder can claim their share of, by selling their acorns.</p><br>
+		  
+		  <h4>EGGS</h4>
+		  
+		  <p>Eggs can be bought and sold directly to the contract. Their price varies on the number of eggs available on the market, as well as the current snailpot. It costs twice as much ether to buy eggs as to sell them.</p><br>
+		  
+		  <h4>ACORNS</h4>
+		  
+		  <p>The price of an acorn is equal to the treepot divided by the total number of acorns. This price can only grow over time.</p><br>
+		  <p>Acorns are initially purchased at a loss. When the snailpot is below the previous snailpot (like at the beginning of a new round), 3 acorns can be bought for the price of 4. When the snailpot is above the previous snailpot, 1 acorn can be bought for the price of 2.</p><br>
+		  
+		  <h4>SNAILMASTER</h4>
+		  
+		  <p>Once you reach a certain amount of snails, you can claim the Snailmaster title. Doing so entitles you to half of the current snailpot. However, most of your snails perish in the process (90%).</p><br>
+		  <p>When someone becomes the Snailmaster, a new round starts. The requirement to be Snailmaster starts at 100,000, and rises by 100,000 with every new round.</p>
+		  
+		  <h4>BOOSTERS</h4>
+		  
+		  <p>The SpiderQueen, the SquirrelDuke and the TadpolePrince can be obtained to boost your hatch size. Each of them adds an extra batch of snails to your hatch (for example, if you hatch 100 eggs and own the Duke and the Prince, you get 100+100+100 = 300 snails).</p><br>
+		  <p>Boosters are unique "hot potato" items. Once you buy them, someone else can buy them from you for a higher price. The SpiderQueen requires a sacrifice of 80 snails initially, and doubles with each new flip. The SquirrelDuke requires a sacrifice of 1 acorn initially, and also doubles with each new flip. The TadpolePrince costs 0.01 eth initially, and this cost rises by 20% with each new flip.</p><br>
+		  <p>The previous Tadpole holder gets 110% of his ETH back when the Tadpole is flipped. Previous Spider and Squirrel owners do not get anything back on a flip. Booster requirements are reset to their minimum with every new round (Snailmaster).</p><br>
+
+          <h4>METAMASK</h4>
+          <p>This game requires <a href="https://metamask.io/">Metamask</a></p>
+          
+        <input style="display:none;" type="text" value="Hello Worldfdgerh" id="copytextthing">
+      </div>
+
+      <footer class="footer">
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        main()
+    </script>
+  </body>
+
+</html>
