@@ -22,6 +22,7 @@ function refreshData(){
 		leadernumber++;
 	} else {
 		leadernumber = 0;
+		addtext = "";
 	}
 }
 
@@ -48,7 +49,8 @@ var leaderArray = [a1, a2, a3, a4, a5]
 
 function updateLeaderboard(){
 	leaderArray[leadernumber].snails = hatcherySnail(leaderArray[leadernumber].address);
-	addtext += leaderArray[leadernumber].address + " has " + leaderArray[leadernumber].snails + " snails <br>";
+	var leaderprevious = leadernumber - 1;
+	addtext += leaderArray[leaderprevious].address + " has " + leaderArray[leadernumber].snails + " snails <br>";
 	basictestdoc.innerHTML = addtext;
 	/*
 	a2.snails = hatcherySnail(a2.address);
