@@ -1033,15 +1033,15 @@ abi=[
 	}
 ]
 
-contractAddress="0xeb93E12E23aCD78f622FcDB6B51906B7ba0AeD2b"
+contractAddress="0x4B8f0B4f1E2cF708bB9E445673aDB96ff03bCD94"
 
-// MAINNET v1.1: 0xeb93E12E23aCD78f622FcDB6B51906B7ba0AeD2b
-// MAINNET v1: 0xa78b54123b7Fd920CbA3B95427B3515c94461099
+// MAINNET v2.1: 0xeb93E12E23aCD78f622FcDB6B51906B7ba0AeD2b
+// MAINNET v2: 0xa78b54123b7Fd920CbA3B95427B3515c94461099
 
-// ROPSTEN v3: 0x4B8f0B4f1E2cF708bB9E445673aDB96ff03bCD94
-// ROPSTEN v2.1: 0xc5E84e15EA84f607daC61846f4C6d909c9981023
-// ROPSTEN v2: 0xAA211051cAc39998aEFe9F77158a1E32bA824488 
-// ROPSTEN v1: 0x206cfbc0071190cab99e34d1f1e4a5c003c1136f
+// ROPSTEN v0.3: 0x4B8f0B4f1E2cF708bB9E445673aDB96ff03bCD94
+// ROPSTEN v0.2.1: 0xc5E84e15EA84f607daC61846f4C6d909c9981023
+// ROPSTEN v0.2: 0xAA211051cAc39998aEFe9F77158a1E32bA824488 
+// ROPSTEN v0.1: 0x206cfbc0071190cab99e34d1f1e4a5c003c1136f
 
 function SoldEgg(callback){
     var contractAbi = web3.eth.contract(abi);
@@ -1066,7 +1066,7 @@ function SeedMarket(eggs, acorns, eth, callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData, value: eth},
     function(error,result){
         if(!error){
-            console.log('SeedMarket ',);
+            //console.log('SeedMarket ',);
             callback()
         }
         else{
@@ -1082,7 +1082,7 @@ function SellAcorns(acorns, callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('SellAcorns ',);
+            //console.log('SellAcorns ',);
             callback()
         }
         else{
@@ -1098,7 +1098,7 @@ function BuyAcorns(eth, callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData, value: eth},
     function(error,result){
         if(!error){
-            console.log('BuyAcorns ',);
+            //console.log('BuyAcorns ',);
             callback()
         }
         else{
@@ -1114,7 +1114,7 @@ function BecomeSnailmaster(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('BecomeSnailmaster ',);
+            //console.log('BecomeSnailmaster ',);
             callback()
         }
         else{
@@ -1130,7 +1130,7 @@ function WithdrawEarnings(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('WithdrawEarnings ',);
+            //console.log('WithdrawEarnings ',);
             callback()
         }
         else{
@@ -1146,7 +1146,7 @@ function HatchEggs(eth, callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            console.log('HatchEggs ',eth);
+            //console.log('HatchEggs ',eth);
             callback()
         }
         else{
@@ -1162,7 +1162,7 @@ function SellEggs(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('SellEggs ',);
+            //console.log('SellEggs ',);
             callback()
         }
         else{
@@ -1178,7 +1178,7 @@ function BuyEggs(eth, callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData, value: eth},
     function(error,result){
         if(!error){
-            console.log('BuyEggs ', eth);
+            //console.log('BuyEggs ', eth);
             callback()
         }
         else{
@@ -1194,7 +1194,7 @@ function BuyStartingSnails(eth, callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData, value: eth},
     function(error,result){
         if(!error){
-            console.log('BuyStartingSnails ', eth);
+            //console.log('BuyStartingSnails ', eth);
             callback()
         }
         else{
@@ -1210,7 +1210,7 @@ function BecomeSpiderQueen(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('BecomeSpiderQueen ',);
+            //console.log('BecomeSpiderQueen ',);
             callback()
         }
         else{
@@ -1226,7 +1226,7 @@ function BecomeSquirrelDuke(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('BecomeSquirrelDuke ',);
+            //console.log('BecomeSquirrelDuke ',);
             callback()
         }
         else{
@@ -1242,7 +1242,7 @@ function BecomeTadpolePrince(eth, callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData, value: eth},
     function(error,result){
         if(!error){
-            console.log('BecomeTadpolePrince ', eth);
+            //console.log('BecomeTadpolePrince ', eth);
             callback()
         }
         else{
@@ -1258,7 +1258,7 @@ function ComputeAcornPrice(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeAcornPrice ', web3.toDecimal(result));
+            //console.log('ComputeAcornPrice ', web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1274,7 +1274,7 @@ function ComputeSell(eggs, callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeSell ', web3.toDecimal(result));
+            //console.log('ComputeSell ', web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1290,7 +1290,7 @@ function ComputeBuy(eth, callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeBuy ', web3.toDecimal(result));
+            //console.log('ComputeBuy ', web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1306,7 +1306,7 @@ function snailmasterReq(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('snailmasterReq ',web3.toDecimal(result));
+            //console.log('snailmasterReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1322,7 +1322,7 @@ function spiderReq(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('spiderReq ',web3.toDecimal(result));
+            //console.log('spiderReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1338,7 +1338,7 @@ function squirrelReq(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('squirrelReq ',web3.toDecimal(result));
+            //console.log('squirrelReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1354,7 +1354,7 @@ function tadpoleReq(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('tadpoleReq ',web3.toDecimal(result));
+            //console.log('tadpoleReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1370,7 +1370,7 @@ function treePot(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('treePot ',web3.toDecimal(result));
+            //console.log('treePot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1386,7 +1386,7 @@ function snailPot(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('snailPot ',web3.toDecimal(result));
+            //console.log('snailPot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1402,7 +1402,7 @@ function previousSnailPot(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('previousSnailPot ',web3.toDecimal(result));
+            //console.log('previousSnailPot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1418,7 +1418,7 @@ function round(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('round ',web3.toDecimal(result));
+            //console.log('round ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1434,7 +1434,7 @@ function claimedEggs(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('claimedEggs ',web3.toDecimal(result));
+            //console.log('claimedEggs ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1450,7 +1450,7 @@ function TIME_TO_HATCH_1SNAIL(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('TIME_TO_HATCH_1SNAIL ',web3.toDecimal(result));
+            //console.log('TIME_TO_HATCH_1SNAIL ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1466,7 +1466,7 @@ function ComputeEggsSinceLastHatch(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeEggsSinceLastHatch ',web3.toDecimal(result));
+            //console.log('ComputeEggsSinceLastHatch ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1482,7 +1482,7 @@ function ComputeMyEggs(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeMyEggs ',web3.toDecimal(result));
+            //console.log('ComputeMyEggs ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1498,7 +1498,7 @@ function GetMySnail(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('GetMySnail ',web3.toDecimal(result));
+            //console.log('GetMySnail ',web3.toDecimal(result));
             if(result=='0x'){
                 result=0
             }
@@ -1517,7 +1517,7 @@ function GetMyEgg(callback){ // getMyEggs() from shrimp = ComputeMyEggs()
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('GetMyEgg ',web3.toDecimal(result));
+            //console.log('GetMyEgg ',web3.toDecimal(result));
             if(result=='0x'){
                 result=0
             }
@@ -1536,7 +1536,7 @@ function GetMyAcorn(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('GetMyAcorn ',web3.toDecimal(result));
+            //console.log('GetMyAcorn ',web3.toDecimal(result));
             if(result=='0x'){
                 result=0
             }
@@ -1555,7 +1555,7 @@ function GetMyProd(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('GetMyProd ',web3.toDecimal(result));
+            //console.log('GetMyProd ',web3.toDecimal(result));
             if(result=='0x'){
                 result=0
             }
@@ -1574,7 +1574,7 @@ function GetMyEgg(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('GetMyEgg ',web3.toDecimal(result));
+            //console.log('GetMyEgg ',web3.toDecimal(result));
             if(result=='0x'){
                 result=0
             }
@@ -1593,7 +1593,7 @@ function GetMyEarning(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('GetMyEarning ',web3.toDecimal(result));
+            //console.log('GetMyEarning ',web3.toDecimal(result));
             if(result=='0x'){
                 result=0
             }
@@ -1613,7 +1613,7 @@ function hatcherySnail(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('hatcherySnail ',web3.toDecimal(result));
+            //console.log('hatcherySnail ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1629,7 +1629,7 @@ function totalAcorns(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('totalAcorns ',web3.toDecimal(result));
+            //console.log('totalAcorns ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1645,7 +1645,7 @@ function lastHatch(address,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('lastHatch ',web3.toDecimal(result));
+            //console.log('lastHatch ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1661,7 +1661,7 @@ function marketEggs(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('marketEggs ',web3.toDecimal(result));
+            //console.log('marketEggs ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1677,7 +1677,7 @@ function currentSpiderOwner(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('currentSpiderOwner ',result);
+            //console.log('currentSpiderOwner ',result);
             callback(result)
         }
         else{
@@ -1693,7 +1693,7 @@ function currentSquirrelOwner(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('currentSquirrelOwner ',result);
+            //console.log('currentSquirrelOwner ',result);
             callback(result)
         }
         else{
@@ -1709,7 +1709,7 @@ function currentTadpoleOwner(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('currentTadpoleOwner ',result);
+            //console.log('currentTadpoleOwner ',result);
             callback(result)
         }
         else{
