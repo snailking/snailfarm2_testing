@@ -55,6 +55,9 @@ function refreshData(){
 		marketeggslogdoc.innerHTML = logtext;
 	});
 
+	var logboxscroll = document.getElementById('logboxscroll');
+	logboxscroll.scrollTop = logboxscroll.scrollHeight;
+	
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
     });
