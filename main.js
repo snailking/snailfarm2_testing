@@ -54,7 +54,6 @@ function refreshData(){
 		logtext += snailpot + " ETH snailpot <br/>";
 		marketeggslogdoc.textContent = logtext;
 	});
-}
 
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
