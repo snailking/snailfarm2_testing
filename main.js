@@ -32,18 +32,30 @@ function controlLoopFaster(){
 }
 
 var logtext = "";
-var marketeggslogdoc = document.getElementById('marketeggslog')
+
 
 function refreshData(){
 
-    var marketeggsdoc = document.getElementById('marketeggs')
-
+    var marketeggsdoc = document.getElementById('marketeggs');
+	var marketeggslogdoc = document.getElementById('marketeggslog');
+	
     marketEggs(function(eggs){
         eggs=eggs
         marketeggsdoc.textContent = formatEggs(eggs);		
 		logtext += formatEggs(eggs) + " eggs on the market <br/>";
 		marketeggslogdoc.textContent = logtext;
     });
+	
+    var snailpotdoc=document.getElementById('snailpot')
+	
+	snailPot(function(req) {
+		snailpot = formatEthValue(web3.fromWei(req,'ether'));
+		snailpotdoc.textContent = snailpot;
+		logtext += snailpot + " ETH snailpot <br/>";
+		marketeggslogdoc.textContent = logtext;
+	});
+}
+
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
     });
@@ -88,7 +100,7 @@ function refreshData(){
     updateBuyPrice();
     updateSellPrice();
 	updatePreviousSnailPot();
-	updateSnailPot();
+	//updateSnailPot();
 	updateCurrentVsPrevious();
 	updateTreePot();
 	//updateAcornPrice();
@@ -272,15 +284,7 @@ function updatePlayerEarnings(){
 	});
 }
 
-function updateSnailPot(){
-    var snailpotdoc=document.getElementById('snailpot')
-	snailPot(function(req) {
-		snailpot = formatEthValue(web3.fromWei(req,'ether'));
-		snailpotdoc.textContent = snailpot;
-		logtext += snailpot + " ETH snailpot <br/>";
-		marketeggslogdoc.textContent = logtext;
-	});
-}
+
 
 function updateTreePot(){
     var treepotdoc=document.getElementById('treepot')
