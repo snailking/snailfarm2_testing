@@ -1591,7 +1591,7 @@ function GetMyEarning(callback){
 
 var leaderSnails;
 
-function hatcherySnail(address, callback){
+function hatcherySnail(address){//, callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
     var outputData = myContract.hatcherySnail.getData(address);
@@ -1600,7 +1600,7 @@ function hatcherySnail(address, callback){
         if(!error){
             console.log('hatcherySnail ',web3.toDecimal(result));
 			leaderSnails = web3.toDecimal(result);
-            callback(web3.toDecimal(result))
+            //callback(web3.toDecimal(result))
         }
         else{
             console.log('error :(')
