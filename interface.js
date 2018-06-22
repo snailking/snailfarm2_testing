@@ -1604,7 +1604,8 @@ function hatcherySnail(address, callback){
             console.log('error :(')
         }
     });
-}
+	return result;
+};
 
 function totalAcorns(callback){
     var contractAbi = web3.eth.contract(abi);
