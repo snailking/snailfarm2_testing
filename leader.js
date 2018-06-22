@@ -48,11 +48,11 @@ function updateLeaderboard(){
 	a1.snails = hatcherySnail(a1.address);
 	addtext += a1.address + " has " + a1.snails + " snails <br>"
 	a2.snails = hatcherySnail(a2.address);
-	addtext += a1.address + " has " + a1.snails + " snails <br>"
+	addtext += a2.address + " has " + a2.snails + " snails <br>"
 	a3.snails = hatcherySnail(a3.address);
-	addtext += a1.address + " has " + a1.snails + " snails <br>"
+	addtext += a3.address + " has " + a3.snails + " snails <br>"
 	a4.snails = hatcherySnail(a4.address);
-	addtext += a1.address + " has " + a1.snails + " snails <br>"
+	addtext += a4.address + " has " + a4.snails + " snails <br>"
 	basictestdoc.innerHTML = addtext;
 	/*
 	for (i = 0; i < leaderArray.length; i++) {
