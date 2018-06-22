@@ -43,7 +43,7 @@ function refreshData(){
         eggs=eggs
         marketeggsdoc.textContent = formatEggs(eggs);		
 		logtext += formatEggs(eggs) + " eggs on the market <br/>";
-		marketeggslogdoc.textContent = logtext;
+		marketeggslogdoc.innerHTML = logtext;
     });
 	
     var snailpotdoc=document.getElementById('snailpot')
@@ -52,7 +52,7 @@ function refreshData(){
 		snailpot = formatEthValue(web3.fromWei(req,'ether'));
 		snailpotdoc.textContent = snailpot;
 		logtext += snailpot + " ETH snailpot <br/>";
-		marketeggslogdoc.textContent = logtext;
+		marketeggslogdoc.innerHTML = logtext;
 	});
 
     lastHatch(web3.eth.accounts[0],function(lh){
