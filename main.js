@@ -33,9 +33,11 @@ function controlLoopFaster(){
 
 function refreshData(){
     var marketeggsdoc=document.getElementById('marketeggs')
+	var marketeggslogdoc=document.getElementById('marketeggslog')
     marketEggs(function(eggs){
         eggs=eggs
         marketeggsdoc.textContent = formatEggs(eggs);
+		marketeggslogdoc.textContent = formatEggs(eggs) + "<br>";
     });
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
