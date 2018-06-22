@@ -18,7 +18,7 @@ function controlLoop(){
 
 function refreshData(){
 	updateLeaderboard();
-	if (leadernumber < leaderArray.length) {
+	if (leadernumber < (leaderArray.length - 1) ) {
 		leadernumber++;
 	} else {
 		leadernumber = 0;
