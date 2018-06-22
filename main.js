@@ -104,6 +104,13 @@ function refreshData(){
 
 }
 
+function soldEggEvent(){
+	var soldeggeventdoc = document.getElementById('soldeggevent')
+	SoldEgg.watch(function(req) {
+		soldeggeventdoc.textContent = req.seller + " " + req.eggs + " " + req.eth;
+	});
+}
+
 function updateRound(){
 	var rounddoc = document.getElementById('round')
 	round(function(req) {

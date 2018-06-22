@@ -1033,12 +1033,31 @@ abi=[
 	}
 ]
 
-contractAddress="0xa78b54123b7Fd920CbA3B95427B3515c94461099"
-// MAINNET: 0xa78b54123b7Fd920CbA3B95427B3515c94461099
+contractAddress="0xeb93E12E23aCD78f622FcDB6B51906B7ba0AeD2b"
+
+// MAINNET v1.1: 0xeb93E12E23aCD78f622FcDB6B51906B7ba0AeD2b
+// MAINNET v1: 0xa78b54123b7Fd920CbA3B95427B3515c94461099
+
 // ROPSTEN v3: 0x4B8f0B4f1E2cF708bB9E445673aDB96ff03bCD94
 // ROPSTEN v2.1: 0xc5E84e15EA84f607daC61846f4C6d909c9981023
 // ROPSTEN v2: 0xAA211051cAc39998aEFe9F77158a1E32bA824488 
 // ROPSTEN v1: 0x206cfbc0071190cab99e34d1f1e4a5c003c1136f
+
+function SoldEgg(callback){
+    var contractAbi = web3.eth.contract(abi);
+    var myContract = contractAbi.at(contractAddress);
+    var outputData = myContract.SoldEgg.getData();
+    var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
+    function(error,result){
+        if(!error){
+            console.log('SoldEgg ',);
+            callback()
+        }
+        else{
+            console.log('error :(')
+        }
+    });
+}
 
 function SeedMarket(eggs, acorns, eth, callback){
     var contractAbi = web3.eth.contract(abi);
