@@ -18,11 +18,10 @@ function controlLoop(){
 
 function refreshData(){
 	updateLeaderboard();
-	if (leadernumber == leaderArray.length) {
-		leadernumber = 0;
-		addtext = "";
-	} else {
+	if (leadernumber < leaderArray.length) {
 		leadernumber++;
+	} else {
+		leadernumber = 0;
 	}
 }
 
@@ -43,7 +42,7 @@ var a5 = new Player("0x922cFfa33A078B4Cc6077923e43447d8467F8B55", 0)
 
 // Is this the right way to do this? Research best practice to enter lots of variables in arrays
 
-var leaderArray = [a1, a2, a3, a4]
+var leaderArray = [a1, a2, a3, a4, a5]
 
 // Call hatcherySnail for each address
 
