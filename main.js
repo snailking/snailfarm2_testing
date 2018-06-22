@@ -37,7 +37,9 @@ function refreshData(){
     marketEggs(function(eggs){
         eggs=eggs
         marketeggsdoc.textContent = formatEggs(eggs);
-		marketeggslogdoc.textContent = formatEggs(eggs) + "<br>";
+		var text = "";
+		text += formatEggs(eggs) + " eggs on the market <br/>";
+		marketeggslogdoc.textContent = text;
     });
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
