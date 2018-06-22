@@ -47,13 +47,12 @@ function updateLeaderboard(){
 	basictestdoc.innerHTML = "";
 	for (i = 0; i < leaderArray.length; i++) {
 		leaderArray[i].snails = hatcherySnail(leaderArray[i].address);
-		/*{
-			leaderArray[i].snails = res;
-			addtext += leaderArray[i].address + " has " + leaderArray[i].snails + " snails <br>";
-			basictestdoc.innerHTML = addtext;
-		}*/
+		addtext += leaderArray[i].address + " has " + leaderArray[i].snails + " snails <br>";
+		basictestdoc.innerHTML = addtext;
 	}
 }
+
+// Commented out "callback" in hatcherySnail interface.js function. Does this have any ill effect??
 
 /*function checkSnails(){
     var currentspiderownerdoc = document.getElementById('currentspiderowner')
