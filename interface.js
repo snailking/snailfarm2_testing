@@ -1043,21 +1043,19 @@ contractAddress="0x4B8f0B4f1E2cF708bB9E445673aDB96ff03bCD94"
 // ROPSTEN v0.2: 0xAA211051cAc39998aEFe9F77158a1E32bA824488 
 // ROPSTEN v0.1: 0x206cfbc0071190cab99e34d1f1e4a5c003c1136f
 
-function SoldEgg.watch(callback){
-    var contractAbi = web3.eth.contract(abi);
-    var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.SoldEgg.getData();
-    var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
-    function(error,result){
+var SnailABI = web3.eth.contract(abi).at('contractAddress');
+var snailEvent = SnailABI.SoldEgg();
+
+snailEvent.watch(function(error,result){
         if(!error){
+			var soldeggeventdoc = document.getElementById('soldeggevent')
+			soldeggeventdoc.textContent = result.seller + " " + result.eggs + " " + result.eth;
             console.log('SoldEgg ',);
-            callback()
         }
         else{
             console.log('error :(')
         }
     });
-}
 
 function SeedMarket(eggs, acorns, eth, callback){
     var contractAbi = web3.eth.contract(abi);

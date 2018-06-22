@@ -18,7 +18,6 @@ function main(){
     modalContent=document.getElementById('modal-internal')
     controlLoop()
     controlLoopFaster()
-	soldEggEvent()
 }
 
 function controlLoop(){
@@ -105,12 +104,6 @@ function refreshData(){
 
 }
 
-function soldEggEvent(){
-	var soldeggeventdoc = document.getElementById('soldeggevent')
-	SoldEgg.watch(function(req) {
-		soldeggeventdoc.textContent = req.seller + " " + req.eggs + " " + req.eth;
-	});
-}
 
 function updateRound(){
 	var rounddoc = document.getElementById('round')
