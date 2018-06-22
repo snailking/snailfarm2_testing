@@ -18,9 +18,9 @@ function controlLoop(){
 
 function refreshData(){
 	updateLeaderboard();
-	leadernumber++;
-	if (leadernumber > leaderArray.length) {
-		addtext = "";
+	if (leadernumber < leaderArray.length) {
+		leadernumber++;
+	} else {
 		leadernumber = 0;
 	}
 }
@@ -48,7 +48,8 @@ var leaderArray = [a1, a2, a3, a4]
 
 function updateLeaderboard(){
 	leaderArray[leadernumber].snails = hatcherySnail(leaderArray[leadernumber].address);
-	addtext += leaderArray[leadernumber].address + " has " + leaderArray[leadernumber].snails + " snails <br>"
+	addtext += leaderArray[leadernumber].address + " has " + leaderArray[leadernumber].snails + " snails <br>";
+	basictestdoc.innerHTML = addtext;
 	/*
 	a2.snails = hatcherySnail(a2.address);
 	addtext += a2.address + " has " + a2.snails + " snails <br>"
