@@ -13,16 +13,18 @@ function leader(){
 
 function controlLoop(){
     refreshData();
-    setTimeout(controlLoop,1000);
+    setTimeout(controlLoop,500);
 }
 
 function refreshData(){
 	updateLeaderboard();
 	if (leadernumber < (leaderArray.length - 1) ) {
 		leadernumber++;
+		setTimeout(controlLoop,500);
 	} else {
 		leadernumber = 0;
 		addtext = "";
+		setTimeout(controlLoop,5000);
 	}
 }
 
