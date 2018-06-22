@@ -1598,7 +1598,7 @@ function hatcherySnail(address, callback){
     function(error,result){
         if(!error){
             console.log('hatcherySnail ',web3.toDecimal(result));
-            callback(web3.toDecimal(result))
+            //callback(web3.toDecimal(result))
         }
         else{
             console.log('error :(')
