@@ -1589,6 +1589,7 @@ function GetMyEarning(callback){
     });
 }
 
+//var leaderSnails;
 
 function hatcherySnail(address, callback){
     var contractAbi = web3.eth.contract(abi);
@@ -1598,12 +1599,14 @@ function hatcherySnail(address, callback){
     function(error,result){
         if(!error){
             console.log('hatcherySnail ',web3.toDecimal(result));
+			var leaderSnails = result;
             //callback(web3.toDecimal(result))
         }
         else{
             console.log('error :(')
         }
     });
+	return leaderSnails; 
 }
 
 function totalAcorns(callback){
