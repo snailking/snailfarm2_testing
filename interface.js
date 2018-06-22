@@ -1043,7 +1043,7 @@ contractAddress="0x4B8f0B4f1E2cF708bB9E445673aDB96ff03bCD94"
 // ROPSTEN v0.2: 0xAA211051cAc39998aEFe9F77158a1E32bA824488 
 // ROPSTEN v0.1: 0x206cfbc0071190cab99e34d1f1e4a5c003c1136f
 
-function SoldEgg(callback){
+function SoldEgg.watch(callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
     var outputData = myContract.SoldEgg.getData();
