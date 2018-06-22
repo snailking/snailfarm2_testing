@@ -31,15 +31,18 @@ function controlLoopFaster(){
     setTimeout(controlLoopFaster,30)
 }
 
+var logtext = "";
+var marketeggslogdoc = document.getElementById('marketeggslog')
+
 function refreshData(){
-    var marketeggsdoc=document.getElementById('marketeggs')
-	var marketeggslogdoc=document.getElementById('marketeggslog')
+
+    var marketeggsdoc = document.getElementById('marketeggs')
+
     marketEggs(function(eggs){
         eggs=eggs
-        marketeggsdoc.textContent = formatEggs(eggs);
-		var text = "";
-		text += formatEggs(eggs) + " eggs on the market <br/>";
-		marketeggslogdoc.textContent = text;
+        marketeggsdoc.textContent = formatEggs(eggs);		
+		logtext += formatEggs(eggs) + " eggs on the market <br/>";
+		marketeggslogdoc.textContent = logtext;
     });
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
@@ -274,6 +277,8 @@ function updateSnailPot(){
 	snailPot(function(req) {
 		snailpot = formatEthValue(web3.fromWei(req,'ether'));
 		snailpotdoc.textContent = snailpot;
+		logtext += snailpot + " ETH snailpot <br/>";
+		marketeggslogdoc.textContent = logtext;
 	});
 }
 
