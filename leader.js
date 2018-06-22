@@ -1,6 +1,6 @@
 var addtext = "";
 var basictestdoc = ""; 
-
+var leadernumber = 0;
 // Copying logic from main.js
 
 function leader(){
@@ -12,15 +12,17 @@ function leader(){
 // 10s loop. Might be too slow?
 
 function controlLoop(){
-    refreshData()
-    setTimeout(controlLoop,10000)
+    refreshData();
+    setTimeout(controlLoop,1000);
 }
 
 function refreshData(){
-	
-	//addtext += "Hello there";
-	//basictestdoc.textContent = addtext;*/
-	updateLeaderboard();
+	updateLeaderboard(leadernumber);
+	leadernumber++;
+	if (leadernumber > leaderArray.length) {
+		addtext = "";
+		leadernumber = 0;
+	}
 }
 
 // Player object
@@ -44,10 +46,10 @@ var leaderArray = [a1, a2, a3, a4]
 
 // Call hatcherySnail for each address
 
-function updateLeaderboard(){
-	addtext = "";
-	a1.snails = hatcherySnail(a1.address);
-	addtext += a1.address + " has " + hatcherySnail(a1.address) + " snails <br>"
+function updateLeaderboard(num){
+	leaderArray[num].snails = hatcherySnail(leaderArray[num].address);
+	addtext += leaderArray[num].address + " has " + leaderArray[num].snails + " snails <br>"
+	/*
 	a2.snails = hatcherySnail(a2.address);
 	addtext += a2.address + " has " + a2.snails + " snails <br>"
 	a3.snails = hatcherySnail(a3.address);
