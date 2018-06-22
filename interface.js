@@ -1593,7 +1593,7 @@ function GetMyEarning(callback){
 function hatcherySnail(address, callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.hatcherySnail.getData();
+    var outputData = myContract.hatcherySnail.getData(address);
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
