@@ -18,10 +18,11 @@ function controlLoop(){
 
 function refreshData(){
 	updateLeaderboard();
-	if (leadernumber < leaderArray.length) {
-		leadernumber++;
-	} else {
+	if (leadernumber == leaderArray.length) {
 		leadernumber = 0;
+		addtext = "";
+	} else {
+		leadernumber++;
 	}
 }
 
