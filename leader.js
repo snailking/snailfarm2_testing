@@ -45,11 +45,22 @@ var leaderArray = [a1, a2, a3, a4]
 
 function updateLeaderboard(){
 	addtext = "";
+	a1.snails = hatcherySnail(a1.address);
+	addtext += a1.address + " has " + a1.snails + " snails <br>"
+	a2.snails = hatcherySnail(a2.address);
+	addtext += a1.address + " has " + a1.snails + " snails <br>"
+	a3.snails = hatcherySnail(a3.address);
+	addtext += a1.address + " has " + a1.snails + " snails <br>"
+	a4.snails = hatcherySnail(a4.address);
+	addtext += a1.address + " has " + a1.snails + " snails <br>"
+	basictestdoc.innerHTML = addtext;
+	/*
 	for (i = 0; i < leaderArray.length; i++) {
 		leaderArray[i].snails = hatcherySnail(leaderArray[i].address);
 		addtext += leaderArray[i].address + " has " + leaderArray[i].snails + " snails <br>";
 		basictestdoc.innerHTML = addtext;
 	}
+	*/
 }
 
 // Commented out "callback" in hatcherySnail interface.js function. Does this have any ill effect??
