@@ -52,6 +52,7 @@ var leaderArray = [a1, a2, a3, a4, a5]
 function updateLeaderboard(){
 	leaderArray[leadernumber].snails = hatcherySnail(leaderArray[leadernumber].address);
 	var leaderprevious = leadernumber - 1;
+	if(leaderprevious < 0) { leaderprevious = 0; }
 	addtext += leaderArray[leaderprevious].address + " has " + leaderArray[leadernumber].snails + " snails <br>";
 	basictestdoc.innerHTML = addtext;
 	/*
