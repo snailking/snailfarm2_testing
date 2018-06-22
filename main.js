@@ -18,6 +18,7 @@ function main(){
     modalContent=document.getElementById('modal-internal')
     controlLoop()
     controlLoopFaster()
+	soldEggEvent()
 }
 
 function controlLoop(){
@@ -27,7 +28,7 @@ function controlLoop(){
 
 function controlLoopFaster(){
     liveUpdateEggs()
-    console.log('clf')
+    //console.log('clf')
     setTimeout(controlLoopFaster,30)
 }
 
@@ -52,7 +53,7 @@ function refreshData(){
         }
         var timeuntilfulldoc = document.getElementById('timeuntilfull');
         secondsuntilfull = eggstohatch1 - eggs/lastNumShrimp;
-        console.log('secondsuntilfull ',secondsuntilfull,eggstohatch1,eggs,lastNumShrimp);
+        //console.log('secondsuntilfull ',secondsuntilfull,eggstohatch1,eggs,lastNumShrimp);
         lastSecondsUntilFull=secondsuntilfull;
         timeuntilfulldoc.textContent = secondsToString(secondsuntilfull);
         if(lastNumShrimp==0){
@@ -173,7 +174,7 @@ function updateSellPrice(){
     //eggstoselldoc.textContent='?'
    ComputeMyEggs(function(eggs){
         ComputeSell(eggs,function(wei){
-               console.log('sellprice ',wei)
+               //console.log('sellprice ',wei)
                eggstoselldoc.textContent=formatEthValue(web3.fromWei(wei,'ether'))
         });
    });
