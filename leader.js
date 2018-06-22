@@ -46,7 +46,7 @@ var leaderArray = [a1, a2, a3, a4]
 function updateLeaderboard(){
 	basictestdoc.innerHTML = "";
 	for (i = 0; i < leaderArray.length; i++) {
-		leaderArray[i].snails = hatcherySnail(function(leaderArray[i].address)){
+		leaderArray[i].snails = hatcherySnail(function(leaderArray[i].address){
 			addtext += leaderArray[i].address + " has " + leaderArray[i].snails + " snails <br>";
 			basictestdoc.innerHTML = addtext;
 		});
