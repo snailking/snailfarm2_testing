@@ -106,6 +106,14 @@ function refreshData(){
 	}*/
 }
 
+// Check a specific address
+function Hunt(){
+	addtext = "";
+	var hunted = document.getElementById("hunted").value;
+	hatcherySnail(hunted);
+	basictestdoc.innerHTML = addtext;
+}
+
 // Player object
 
 function Player (address, snails, eggs) {
@@ -164,7 +172,6 @@ function updateLeaderboard(){
 	addtext = "";
 }
 
-// Commented out "callback" in hatcherySnail interface.js function. Does this have any ill effect??
 
 /*function checkSnails(){
     var currentspiderownerdoc = document.getElementById('currentspiderowner')
