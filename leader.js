@@ -93,7 +93,7 @@ function leader(){
 
 function controlLoop(){
     refreshData();
-    setInterval(refreshData,20000);
+    setInterval(refreshData,10000);
 }
 
 function refreshData(){
