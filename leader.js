@@ -36,7 +36,8 @@ function hatcherySnail(address, callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            callback(web3.toDecimal(result));
+            //callback(web3.toDecimal(result));
+			leaderArray[1].snails = web3.toDecimal(result);
         }
         else{
             console.log('error :(');
