@@ -22,6 +22,25 @@ var abi = [ {
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "adr",
+				"type": "address"
+			}
+		],
+		"name": "ComputeEggsSinceLastHatch",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]
 
@@ -45,6 +64,22 @@ function hatcherySnail(address, callback){
     });
 }
 
+function ComputeEggsSinceLastHatch(address,callback){
+    var contractAbi = web3.eth.contract(abi);
+    var myContract = contractAbi.at(contractAddress);
+    var outputData = myContract.ComputeEggsSinceLastHatch.getData(address);
+    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
+    function(error,result){
+        if(!error){
+            //callback(web3.toDecimal(result))
+			addtext += address + " = " + web3.toDecimal(result) + "<br><br>";
+        }
+        else{
+            console.log('error :(')
+        }
+    });
+}
+
 // Copying logic from main.js
 
 function leader(){
@@ -57,7 +92,7 @@ function leader(){
 
 function controlLoop(){
     refreshData();
-    setTimeout(controlLoop,500);
+    setTimeout(controlLoop,5000);
 }
 
 function refreshData(){
@@ -72,18 +107,19 @@ function refreshData(){
 
 // Player object
 
-function Player (address, snails) {
+function Player (address, snails, eggs) {
 	this.address = address;
 	this.snails = snails;
+	this.eggs = eggs;
 }
 
 // Added manually based on activity. Research how to automate this.
 
-var a1 = new Player("0x58e90f6e19563ce82c4a0010cece699b3e1a6723", 0)
-var a2 = new Player("0xe84fd91cbba2fcddc22d96965158ae676dd61d28", 0)
-var a3 = new Player("0x20c945800de43394f70d789874a4dac9cfa57451", 0)
-var a4 = new Player("0x1ec75d8ca166c8f12a3531204923cbcc8f020ed2", 0)
-var a5 = new Player("0x922cFfa33A078B4Cc6077923e43447d8467F8B55", 0)
+var a1 = new Player("0x58e90f6e19563ce82c4a0010cece699b3e1a6723", 0, 0)
+var a2 = new Player("0xe84fd91cbba2fcddc22d96965158ae676dd61d28", 0, 0)
+var a3 = new Player("0x20c945800de43394f70d789874a4dac9cfa57451", 0, 0)
+var a4 = new Player("0x1ec75d8ca166c8f12a3531204923cbcc8f020ed2", 0, 0)
+var a5 = new Player("0x922cFfa33A078B4Cc6077923e43447d8467F8B55", 0, 0)
 
 // Is this the right way to do this? Research best practice to enter lots of variables in arrays
 
@@ -107,7 +143,8 @@ function updateLeaderboard(){
 	basictestdoc.innerHTML = addtext;*/
 
 	for (i = 0; i < leaderArray.length; i++) {
-		leaderArray[i].snails = hatcherySnail(leaderArray[i].address);
+		hatcherySnail(leaderArray[i].address);
+		ComputeEggsSinceLastHatch(leaderArray[i].address);
 		//addtext += leaderArray[i].address + " has " + leaderArray[i].snails + " snails <br>";
 		basictestdoc.innerHTML = addtext;
 	}
