@@ -37,7 +37,7 @@ function hatcherySnail(address, callback){
     function(error,result){
         if(!error){
             //callback(web3.toDecimal(result));
-			addtext += web3.toDecimal(result);
+			addtext += address + " = " + web3.toDecimal(result) + "<br>";
         }
         else{
             console.log('error :(');
