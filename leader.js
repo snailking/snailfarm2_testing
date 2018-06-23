@@ -37,7 +37,7 @@ function hatcherySnail(address, callback){
     function(error,result){
         if(!error){
             //callback(web3.toDecimal(result));
-			addtext = web3.toDecimal(result);
+			addtext += web3.toDecimal(result);
         }
         else{
             console.log('error :(');
@@ -108,7 +108,7 @@ function updateLeaderboard(){
 
 	for (i = 0; i < leaderArray.length; i++) {
 		leaderArray[i].snails = hatcherySnail(leaderArray[i].address);
-		addtext += leaderArray[i].address + " has " + leaderArray[i].snails + " snails <br>";
+		//addtext += leaderArray[i].address + " has " + leaderArray[i].snails + " snails <br>";
 		basictestdoc.innerHTML = addtext;
 	}
 	addtext = "";
