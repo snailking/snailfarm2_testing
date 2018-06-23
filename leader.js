@@ -56,7 +56,7 @@ function hatcherySnail(address, callback){
     function(error,result){
         if(!error){
             //callback(web3.toDecimal(result));
-			addtext += address + " = " + web3.toDecimal(result) + "<br>";
+			addtext += address + " = " + web3.toDecimal(result) + " snails<br>";
         }
         else{
             console.log('error :(');
@@ -72,7 +72,8 @@ function ComputeEggsSinceLastHatch(address,callback){
     function(error,result){
         if(!error){
             //callback(web3.toDecimal(result))
-			addtext += address + " = " + web3.toDecimal(result) + "<br><br>";
+			var displayeggs = (web3.toDecimal(result)) / 86400;
+			addtext += address + " = " + displayeggs + " eggs<br><br>";
         }
         else{
             console.log('error :(')
