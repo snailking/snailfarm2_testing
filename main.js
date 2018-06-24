@@ -320,8 +320,8 @@ function updateSquirrelReq(){
 function updateTadpoleReq(){
     var tadpolereqdoc=document.getElementById('tadpolereq')
 	tadpoleReq(function(req) {
-		var tadpoleRoundUp = formatEthValue(web3.fromWei(req,'ether'));
-		tadpoleRoundUp = (tadpoleRoundUp + 0.0001).toFixed(5);
+		var tadpoleRoundUp = web3.fromWei(req,'ether') + 0.0001;
+		tadpoleRoundUp = formatEthValue(tadpoleRoundUp);
 		tadpolereqdoc.textContent = tadpoleRoundUp;
 	});
 }
