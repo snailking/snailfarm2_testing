@@ -321,8 +321,8 @@ function updateTadpoleReq(){
     var tadpolereqdoc=document.getElementById('tadpolereq')
 	tadpoleReq(function(req) {
 		var tadpoleRoundUp = formatEthValue(web3.fromWei(req,'ether'));
-		tadpoleRoundUp = tadpoleRoundUp + 0.0001;
-		tadpolereqdoc.textContent = tadpoleRoundUp.toFixed(5);
+		tadpoleRoundUp = (tadpoleRoundUp + 0.0001).toFixed(5);
+		tadpolereqdoc.textContent = tadpoleRoundUp;
 	});
 }
 /*
