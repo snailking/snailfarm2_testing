@@ -18,6 +18,7 @@ function main(){
     modalContent=document.getElementById('modal-internal')
     controlLoop()
     controlLoopFaster()
+	controlLoopSlow()
 }
 
 function controlLoop(){
@@ -31,19 +32,59 @@ function controlLoopFaster(){
     setTimeout(controlLoopFaster,30)
 }
 
+function controlLoopSlow(){
+	logmarket()
+	setTimeout(controlLoopSlow,60000)
+}	
+	
 var logtext = "";
 
-
+function logmarket(){
+	
+	var marketeggslogdoc = document.getElementById('marketeggslog');
+	var marketeggsprev = 0;
+	var marketeggsnow = 0;
+	var snailpotprev = 0;
+	var snailpotnow = 0;
+	
+	marketeggsprev = marketeggsnow;
+	snailpotprev = snailpotnow;
+	
+	marketEggs(function(eggs){
+        eggs=eggs		
+		logtext += formatEggs(eggs) + " eggs on the market <br/>";
+		marketeggslogdoc.innerHTML = logtext;
+		marketeggsnow = formatEggs(eggs);
+    });
+	
+	snailPot(function(req) {
+		snailpot = formatEthValue(web3.fromWei(req,'ether'));
+		logtext += snailpot + " ETH snailpot <br/>";
+		marketeggslogdoc.innerHTML = logtext;
+		snailpotnow = snailpot;
+	});
+	
+	// Green if more eggs (buy buy buy), red if less eggs (sell sell sell), black if no change
+	if(marketeggsprev < marketeggsnow) { 
+		marketeggslogdoc.style.color = "#00ff00";
+	} else if (marketeggsprev > marketeggsnow) {
+		marketeggslogdoc.style.color = "#ff0000";
+	} else {
+		marketeggslogdoc.style.color = "#000000";
+	}
+	
+	var logboxscroll = document.getElementById('logboxscroll');
+	logboxscroll.scrollTop = logboxscroll.scrollHeight;
+	
+}
+	
 function refreshData(){
 
     var marketeggsdoc = document.getElementById('marketeggs');
-	var marketeggslogdoc = document.getElementById('marketeggslog');
 	
     marketEggs(function(eggs){
         eggs=eggs
         marketeggsdoc.textContent = formatEggs(eggs);		
-		logtext += formatEggs(eggs) + " eggs on the market <br/>";
-		marketeggslogdoc.innerHTML = logtext;
     });
 	
     var snailpotdoc=document.getElementById('snailpot')
@@ -51,12 +92,7 @@ function refreshData(){
 	snailPot(function(req) {
 		snailpot = formatEthValue(web3.fromWei(req,'ether'));
 		snailpotdoc.textContent = snailpot;
-		logtext += snailpot + " ETH snailpot <br/>";
-		marketeggslogdoc.innerHTML = logtext;
 	});
-
-	var logboxscroll = document.getElementById('logboxscroll');
-	logboxscroll.scrollTop = logboxscroll.scrollHeight;
 	
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
