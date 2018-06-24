@@ -304,7 +304,7 @@ function updateSquirrelReq(){
 function updateTadpoleReq(){
     var tadpolereqdoc=document.getElementById('tadpolereq')
 	tadpoleReq(function(req) {
-		var tadpoleRoundUp = web3.fromWei(req,'ether') + 0.00001;
+		var tadpoleRoundUp = web3.fromWei(req,'ether') + 0.0001;
 		tadpoleRoundUp = formatEthValue(tadpoleRoundUp);
 		tadpolereqdoc.textContent = tadpoleRoundUp;
 	});
