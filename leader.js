@@ -129,6 +129,7 @@ var a1 = new Player("0xe84fd91cbba2fcddc22d96965158ae676dd61d28", 0, 0)
 var a5 = new Player("0x922cFfa33A078B4Cc6077923e43447d8467F8B55", 0, 0)
 var a7 = new Player("0x58e90f6e19563ce82c4a0010cece699b3e1a6723", 0, 0)
 var a8 = new Player("0x1ec75d8ca166c8f12a3531204923cbcc8f020ed2", 0, 0)
+var a9 = new Player("0xb38094d492af4fffff760707f36869713bfb2250", 0, 0)
 //var a10 = new Player("0x20c945800de43394f70d789874a4dac9cfa57451", 0, 0)
 //var a11 = new Player("0x78FEff3e50AffF2316be5cAe1b49cc00C0570353", 0, 0)
 //var a13 = new Player("0xc951D3463EbBa4e9Ec8dDfe1f42bc5895C46eC8f", 0, 0)
@@ -144,7 +145,7 @@ var a3 = new Player("0x268e83c26934e868182a82a0f740fc577fb0830d", 0, 0)
 
 // Is this the right way to do this? Research best practice to enter lots of variables in arrays
 
-var leaderArray = [a1, a2, a3, a4, a5, a6, a7, a8];//, a9, a10, a11, a12, a13, a14, a15, a16];
+var leaderArray = [a1, a2, a3, a4, a5, a6, a7, a8, a9];
 
 // Call hatcherySnail for each address
 
